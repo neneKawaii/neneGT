@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>順位表</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        body {
+            background-color: #F1ECEB;
+        }
+        table {
+            width: 70%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #F1ECEB;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #DBDBDB;
+            color: #363427;
+        }
+        th {
+            background-color: #344699;
+            color: #f1eef7;
+        }
+        tbody tr {
+            cursor: move;
+            background-color: #F1ECEB;
+        }
+        .grayed-out {
+            background-color: #a9a9a9;
+            color: #d3d3d3;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+
+        /* 順位列を太字にする */
+        td:first-child {
+            font-weight: bold;
+        }
+
+        /* 1位から10位までの色設定 */
+        .rank-1 { background-color: #FAFAD2; }  /* ゴールド */
+        .rank-2 { background-color: #FAFAD2; }  /* シルバー */
+        .rank-3 { background-color: #FAFAD2; }  /* ブロンズ */
+        .rank-4 { background-color: #FAFAD2; }
+        .rank-5 { background-color: #FAFAD2; }
+        .rank-6 { background-color: #FAFAD2; }
+        .rank-7 { background-color: #FAFAD2; }
+        .rank-8 { background-color: #FAFAD2; }
+        .rank-9 { background-color: #FAFAD2; }
+        .rank-10 { background-color: #FAFAD2; }
+
+        /* 順位セルのハイライト色 */
+        .highlight-rank {
+            background-color: #cee4ae;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>順位</th>
+                <th>No</th>
+                <th>team</th>
+                <th>R</th>
+                <th>PIT</th>
+            </tr>
+        </thead>
+        <tbody id="rankingTable">
+            <!-- 25行作成 -->
+            <tr>
+                <td>1</td>
+                <td>37</td>
+                <td>Deloitte TOM'S</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>14</td>
+                <td>TGR TEAM ENEOS ROOKIE</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>16</td>
+                <td>ARTA MUGEN#16</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>12</td>
+                <td>MARELLI IMPUL Z</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>36</td>
+                <td>au TOM'S</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>100</td>
+                <td>STANLEY TEAM KUNIMITSU</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>17</td>
+                <td>Astemo REAL RACING</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>3</td>
+                <td>Niterra MOTUL</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>24</td>
+                <td>KONDO RACING</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>23</td>
+                <td>MOTUL AUTECH</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>19</td>
+                <td>WedsSport BANDOH</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>39</td>
+                <td>TGR TEAM SARD</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>64</td>
+                <td>Modulo Nakajima Racing</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>8</td>
+                <td>ARTA MUGEN#8</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>38</td>
+                <td>KeePer CERUMO</td>
+                <td><input type="checkbox" class="row-check"></td>
+                <td><input type="checkbox" class="highlight-check"></td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            // 順位の並び替えを可能にする
+            $("#rankingTable").sortable({
+                update: function(event, ui) {
+                    updateRanking();
+                }
+            });
+
+            // チェックボックスの状態に応じて行をグレーアウト
+            $(".row-check").change(function() {
+                if($(this).is(":checked")) {
+                    $(this).closest("tr").addClass("grayed-out");
+                } else {
+                    $(this).closest("tr").removeClass("grayed-out");
+                }
+            });
+
+            // ハイライトチェックボックスの変更で順位セルをハイライト
+            $(".highlight-check").change(function() {
+                var rankCell = $(this).closest("tr").find("td:first");
+                if($(this).is(":checked")) {
+                    rankCell.addClass("highlight-rank");
+                } else {
+                    rankCell.removeClass("highlight-rank");
+                }
+            });
+
+            // 初回の順位更新
+            updateRanking();
+        });
+
+        // 順位の更新
+        function updateRanking() {
+            $("#rankingTable tr").each(function(index) {
+                // 順位を更新
+                $(this).find("td:first").text(index + 1);
+
+                // まず、全てのカスタムクラスを削除
+                $(this).removeClass("rank-1 rank-2 rank-3 rank-4 rank-5 rank-6 rank-7 rank-8 rank-9 rank-10");
+
+                // 順位に応じてクラスを追加
+                if (index < 10) {  // 1位から10位まで
+                    $(this).addClass("rank-" + (index + 1));
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
+
